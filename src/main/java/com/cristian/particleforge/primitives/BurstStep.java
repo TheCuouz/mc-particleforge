@@ -3,13 +3,10 @@ package com.cristian.particleforge.primitives;
 import com.cristian.particleforge.engine.BudgetManager;
 import com.cristian.particleforge.model.EffectContext;
 import com.cristian.particleforge.model.EffectStep;
-import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Particle;
-import org.bukkit.entity.Player;
 
 import java.util.Map;
-import java.util.UUID;
 
 /**
  * Radial burst: spawns {@code count} particles centered at {@code ctx.origin()}
@@ -59,17 +56,8 @@ public final class BurstStep implements EffectStep {
         int eff = effectiveCount(ctx.lodBucket(), ctx.lodMultiplier());
         if (eff <= 0) return;
         Location loc = ctx.origin();
-        if (loc == null || loc.getWorld() == null) return;
-        if (ctx.viewers().isEmpty()) {
-            loc.getWorld().spawnParticle(particle, loc, eff, spread, spread, spread, speed);
-        } else {
-            for (UUID uid : ctx.viewers()) {
-                Player p = Bukkit.getPlayer(uid);
-                if (p != null && p.isOnline()) {
-                    p.spawnParticle(particle, loc, eff, spread, spread, spread, speed);
-                }
-            }
-        }
+        if (loc == null) return;
+        SpawnUtil.spawn(loc, ctx, particle, eff, spread, speed);
     }
 
     /** Package-private for tests. */
