@@ -1,0 +1,35 @@
+name: crate/legendary-win
+category: crate
+defaults:
+  radius: 2.5
+  particle-build: WITCH
+  particle-burst: FIREWORK
+  particle-ring: END_ROD
+  count: 24
+steps:
+  - id: build-up
+    type: HELIX
+    duration: 30
+    params:
+      particle: ${particle-build}
+      radius: 1.2
+      height: 4
+      turns: 3
+      strands: 2
+      count: 4
+  - id: explode
+    type: BURST
+    duration: 5
+    params:
+      particle: ${particle-burst}
+      count: ${count}
+      speed: 0.6
+      spread: 0.8
+  - id: ring
+    type: SHOCKWAVE
+    duration: 20
+    params:
+      particle: ${particle-ring}
+      start-radius: 0.5
+      end-radius: ${radius}
+      points-per-tick: 32

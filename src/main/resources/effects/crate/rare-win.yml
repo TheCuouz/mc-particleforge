@@ -1,0 +1,19 @@
+name: crate/rare-win
+category: crate
+steps:
+  - id: sparkle
+    type: BURST
+    duration: 5
+    params:
+      particle: CRIT
+      count: 16
+      speed: 0.4
+      spread: 0.5
+  - id: halo
+    type: RING
+    duration: 15
+    params:
+      particle: HAPPY_VILLAGER
+      radius: 1.0
+      points: 12
+      rotation-deg-per-tick: 8

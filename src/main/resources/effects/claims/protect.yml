@@ -1,0 +1,19 @@
+name: claims/protect
+category: claims
+steps:
+  - id: pulse
+    type: SHOCKWAVE
+    duration: 15
+    params:
+      particle: HAPPY_VILLAGER
+      start-radius: 0.3
+      end-radius: 2.0
+      points-per-tick: 20
+  - id: outline
+    type: CUBE
+    duration: 30
+    params:
+      particle: END_ROD
+      size: 1.8
+      points-per-edge: 3
+      pulse: true

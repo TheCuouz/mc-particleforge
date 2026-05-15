@@ -1,0 +1,9 @@
+name: crate/epic-win
+category: crate
+extends: crate/legendary-win
+defaults:
+  radius: 1.5
+  count: 12
+overrides:
+  - id: build-up
+    duration: 20

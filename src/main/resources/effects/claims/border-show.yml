@@ -1,0 +1,11 @@
+name: claims/border-show
+category: claims
+steps:
+  - id: border
+    type: RING
+    duration: 60
+    params:
+      particle: ENCHANT
+      radius: 8.0
+      points: 24
+      rotation-deg-per-tick: 6

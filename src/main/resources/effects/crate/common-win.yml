@@ -1,0 +1,11 @@
+name: crate/common-win
+category: crate
+steps:
+  - id: halo
+    type: RING
+    duration: 15
+    params:
+      particle: HAPPY_VILLAGER
+      radius: 0.8
+      points: 12
+      rotation-deg-per-tick: 6

@@ -1,0 +1,21 @@
+name: claims/unclaim
+category: claims
+steps:
+  - id: dissipate
+    type: SHOCKWAVE
+    duration: 20
+    params:
+      particle: SMOKE
+      start-radius: 0.5
+      end-radius: 2.5
+      points-per-tick: 18
+  - id: smolder
+    type: RAIN
+    duration: 20
+    params:
+      particle: LARGE_SMOKE
+      radius: 2.0
+      height: 2.5
+      density-per-tick: 2
+      speed: 0.05
+      spread: 0.2

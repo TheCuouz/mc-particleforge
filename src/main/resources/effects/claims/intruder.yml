@@ -1,0 +1,11 @@
+name: claims/intruder
+category: claims
+steps:
+  - id: warning
+    type: SHOCKWAVE
+    duration: 15
+    params:
+      particle: ANGRY_VILLAGER
+      start-radius: 0.5
+      end-radius: 2.0
+      points-per-tick: 16
