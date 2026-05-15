@@ -25,6 +25,7 @@ public final class ParticleForgePlugin extends JavaPlugin {
     private EffectEngine engine;
     private ParticleForgeApi api;
     private PluginIdentity identity;
+    private boolean debug;
 
     @Override
     public void onEnable() {
@@ -34,6 +35,7 @@ public final class ParticleForgePlugin extends JavaPlugin {
         this.identity = PluginIdentity.of(this).withAlias("Particles");
 
         this.configManager = new ConfigManager(this);
+        this.debug = configManager.debug();
         this.messageManager = new MessageManager(this);
         this.budgetManager = new BudgetManager(configManager);
         this.engine = new EffectEngine(this, budgetManager);
@@ -75,4 +77,6 @@ public final class ParticleForgePlugin extends JavaPlugin {
     public EffectEngine engine()           { return engine; }
     public ParticleForgeApi api()          { return api; }
     public PluginIdentity identity()       { return identity; }
+    public boolean debug()                 { return debug; }
+    public void setDebug(boolean debug)    { this.debug = debug; }
 }
