@@ -55,6 +55,16 @@ public final class EffectContext {
         this.origin = Objects.requireNonNull(loc).clone();
     }
 
+    private int lodBucket = 0;
+    private double lodMultiplier = 1.0;
+
+    public int lodBucket() { return lodBucket; }
+    public double lodMultiplier() { return lodMultiplier; }
+    public void setLod(int bucket, double multiplier) {
+        this.lodBucket = bucket;
+        this.lodMultiplier = multiplier;
+    }
+
     /**
      * Typed param lookup with fallback. Returns {@code fallback} if key absent
      * or value is not assignable to fallback's runtime type.

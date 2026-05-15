@@ -117,6 +117,21 @@ class EffectContextTest {
     }
 
     @Test
+    void lodDefaultsToNearAndFullMultiplier() {
+        EffectContext ctx = new EffectContext(plugin, origin, Set.of(), Map.of(), null, null);
+        assertEquals(0, ctx.lodBucket());
+        assertEquals(1.0, ctx.lodMultiplier(), 1e-9);
+    }
+
+    @Test
+    void setLodUpdatesBothFields() {
+        EffectContext ctx = new EffectContext(plugin, origin, Set.of(), Map.of(), null, null);
+        ctx.setLod(2, 0.25);
+        assertEquals(2, ctx.lodBucket());
+        assertEquals(0.25, ctx.lodMultiplier(), 1e-9);
+    }
+
+    @Test
     void attachHandleUpdatesReference() {
         EffectContext ctx = new EffectContext(plugin, origin, Set.of(), Map.of(), null, null);
         assertNull(ctx.handle());
