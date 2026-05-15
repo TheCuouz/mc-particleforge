@@ -15,3 +15,7 @@ lod-multipliers:
   near: 1.0
   mid: 0.5
   far: 0.2
+
+# Translation overlay to apply on top of messages.yml.
+# Supported: en, es. Defaults to en.
+lang: en

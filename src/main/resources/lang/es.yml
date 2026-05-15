@@ -1,0 +1,25 @@
+# Overlay en español. Las claves de aquí sobrescriben las de messages.yml.
+# El "prefix" NO se redefine aquí — vive en messages.yml como constante global.
+
+no-permission: "<red>No tienes permiso para usar este comando."
+unknown-subcommand: "<red>Subcomando desconocido <white><sub><red>. Prueba <white>/pf help<red>."
+effect-not-found: "<red>El efecto <white><effect><red> no existe."
+effect-started: "<gray>Reproduciendo <white><effect><gray>."
+effect-stopped: "<gray>Detenidos <white><count><gray> efecto(s) activo(s)."
+reloaded: "<green>Recargados <white><count><green> efecto(s) en <white><ms>ms<green>."
+budget-rejected: "<yellow>El efecto <white><effect><yellow> fue rechazado (límite alcanzado)."
+debug-on: "<green>Depuración <white>activada<green>."
+debug-off: "<gray>Depuración <white>desactivada<gray>."
+
+help-header: "<gray>Comandos de ParticleForge:"
+help-line: "<gray>  /pf <white><sub><gray> — <i><desc>"
+
+list-header: "<gray><count> efecto(s) cargados:"
+list-category: "<gray><b><category></b><reset>:"
+list-line: "<gray>  • <white><effect><gray> <dark_gray>(<i><steps> pasos</i>)"
+
+info-header: "<gray>Efecto <white><effect><gray>:"
+info-line-category: "<gray>  categoría: <white><value>"
+info-line-steps: "<gray>  pasos: <white><value>"
+info-line-duration: "<gray>  duración: <white><value> ticks"
+info-line-default: "<gray>  por defecto <white><key><gray>=<white><value>"
