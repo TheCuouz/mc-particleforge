@@ -1,0 +1,11 @@
+name: homes/set
+category: homes
+steps:
+  - id: cube
+    type: CUBE
+    duration: 30
+    params:
+      particle: HAPPY_VILLAGER
+      size: 2.0
+      points-per-edge: 4
+      pulse: true

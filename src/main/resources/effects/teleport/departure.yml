@@ -1,0 +1,13 @@
+name: teleport/departure
+category: teleport
+steps:
+  - id: vortex
+    type: VORTEX
+    duration: 25
+    params:
+      particle: PORTAL
+      start-radius: 2.0
+      end-radius: 0.0
+      height: 2.5
+      turns: 5
+      points-per-tick: 10

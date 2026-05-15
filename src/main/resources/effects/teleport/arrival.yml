@@ -1,0 +1,19 @@
+name: teleport/arrival
+category: teleport
+steps:
+  - id: burst
+    type: BURST
+    duration: 5
+    params:
+      particle: REVERSE_PORTAL
+      count: 32
+      speed: 0.5
+      spread: 0.5
+  - id: shockwave
+    type: SHOCKWAVE
+    duration: 15
+    params:
+      particle: DRAGON_BREATH
+      start-radius: 0.3
+      end-radius: 2.0
+      points-per-tick: 18

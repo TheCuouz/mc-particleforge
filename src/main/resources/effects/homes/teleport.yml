@@ -1,0 +1,13 @@
+name: homes/teleport
+category: homes
+extends: teleport/arrival
+overrides:
+  - id: burst
+    params:
+      particle: END_ROD
+      count: 16
+  - id: shockwave
+    params:
+      particle: END_ROD
+      start-radius: 0.2
+      end-radius: 1.5
