@@ -1,0 +1,12 @@
+name: skills/level-up-major
+category: skills
+extends: skills/level-up
+overrides:
+  - id: vortex
+    duration: 35
+    params:
+      start-radius: 2.5
+      height: 4.5
+  - id: burst
+    params:
+      count: 60

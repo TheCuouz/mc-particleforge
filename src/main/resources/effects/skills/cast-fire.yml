@@ -1,0 +1,14 @@
+name: skills/cast-fire
+category: skills
+steps:
+  - id: cone
+    type: CONE
+    duration: 15
+    params:
+      particle: FLAME
+      direction: forward
+      angle-deg: 18
+      length: 5.0
+      points-per-tick: 8
+      speed: 0.1
+      spread: 0.1

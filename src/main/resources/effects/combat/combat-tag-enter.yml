@@ -1,0 +1,12 @@
+name: combat/combat-tag-enter
+category: combat
+steps:
+  - id: ring
+    type: RING
+    duration: 40
+    params:
+      particle: ANGRY_VILLAGER
+      radius: 1.0
+      points: 8
+      yaw-deg: 0
+      rotation-deg-per-tick: 4

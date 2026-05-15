@@ -1,0 +1,21 @@
+name: skills/level-up
+category: skills
+steps:
+  - id: vortex
+    type: VORTEX
+    duration: 25
+    params:
+      particle: HAPPY_VILLAGER
+      start-radius: 1.5
+      end-radius: 0.0
+      height: 3.0
+      turns: 4
+      points-per-tick: 8
+  - id: burst
+    type: BURST
+    duration: 5
+    params:
+      particle: TOTEM_OF_UNDYING
+      count: 30
+      speed: 0.5
+      spread: 0.6

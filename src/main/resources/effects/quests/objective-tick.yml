@@ -1,0 +1,11 @@
+name: quests/objective-tick
+category: quests
+steps:
+  - id: burst
+    type: BURST
+    duration: 5
+    params:
+      particle: HAPPY_VILLAGER
+      count: 4
+      speed: 0.2
+      spread: 0.3

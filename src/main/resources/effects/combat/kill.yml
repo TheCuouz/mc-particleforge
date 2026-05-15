@@ -1,0 +1,21 @@
+name: combat/kill
+category: combat
+steps:
+  - id: soul-wave
+    type: SHOCKWAVE
+    duration: 15
+    params:
+      particle: SOUL
+      start-radius: 0.2
+      end-radius: 1.5
+      points-per-tick: 18
+  - id: embers
+    type: RAIN
+    duration: 15
+    params:
+      particle: SOUL_FIRE_FLAME
+      radius: 1.5
+      height: 2.0
+      density-per-tick: 3
+      speed: 0.05
+      spread: 0.15

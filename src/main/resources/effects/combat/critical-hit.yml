@@ -1,0 +1,11 @@
+name: combat/critical-hit
+category: combat
+steps:
+  - id: crit
+    type: BURST
+    duration: 5
+    params:
+      particle: CRIT
+      count: 24
+      speed: 0.5
+      spread: 0.3

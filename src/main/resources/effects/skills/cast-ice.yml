@@ -1,0 +1,14 @@
+name: skills/cast-ice
+category: skills
+steps:
+  - id: cone
+    type: CONE
+    duration: 15
+    params:
+      particle: SNOWFLAKE
+      direction: forward
+      angle-deg: 18
+      length: 5.0
+      points-per-tick: 8
+      speed: 0.05
+      spread: 0.1

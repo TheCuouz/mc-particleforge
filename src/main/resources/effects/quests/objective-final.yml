@@ -1,0 +1,17 @@
+name: quests/objective-final
+category: quests
+extends: quests/objective-tick
+overrides:
+  - id: burst
+    duration: 8
+    params:
+      count: 24
+steps:
+  - id: finale-ring
+    type: RING
+    duration: 15
+    params:
+      particle: END_ROD
+      radius: 1.5
+      points: 12
+      rotation-deg-per-tick: 8

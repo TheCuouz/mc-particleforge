@@ -1,0 +1,11 @@
+name: combat/combat-tag-exit
+category: combat
+steps:
+  - id: ring
+    type: RING
+    duration: 20
+    params:
+      particle: HEART
+      radius: 1.0
+      points: 6
+      rotation-deg-per-tick: 3

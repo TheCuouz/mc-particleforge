@@ -1,0 +1,19 @@
+name: quests/accept
+category: quests
+steps:
+  - id: burst
+    type: BURST
+    duration: 5
+    params:
+      particle: HAPPY_VILLAGER
+      count: 16
+      speed: 0.3
+      spread: 0.4
+  - id: beam
+    type: LINE
+    duration: 10
+    params:
+      particle: END_ROD
+      target-relative: "0,3,0"
+      points: 8
+      count: 1
