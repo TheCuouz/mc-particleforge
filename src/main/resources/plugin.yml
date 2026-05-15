@@ -1,0 +1,21 @@
+name: ParticleForge
+version: '${project.version}'
+main: com.cristian.particleforge.ParticleForgePlugin
+api-version: '1.21'
+description: Central particle-effects engine for the TTS-Studio plugin suite
+authors: [Cristian]
+
+commands:
+  pf:
+    description: ParticleForge main command
+    usage: /pf <subcommand>
+    aliases: [particleforge]
+    permission: particleforge.use
+
+permissions:
+  particleforge.use:
+    default: true
+    description: Use /pf for non-admin subcommands (list, info)
+  particleforge.admin:
+    default: op
+    description: Admin subcommands (preview, debug, reload, stop)
