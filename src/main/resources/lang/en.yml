@@ -1,5 +1,8 @@
-# English overlay. Keys here override messages.yml. Do NOT redefine "prefix"
-# — that lives in messages.yml as the global constant.
+# English overlay. Keys here override messages.yml.
+# The studio chat prefix (◈ Particles ›) is provided by the TTS-SDK and is
+# auto-prepended on send. Prepend "!" to suppress the prefix on fragments that
+# are composed into another message via a placeholder (e.g. <desc> inside
+# help-line) to avoid a double prefix.
 
 no-permission: "<red>You don't have permission to use this command."
 unknown-subcommand: "<red>Unknown subcommand <white><sub><red>. Try <white>/pf help<red>."
@@ -24,9 +27,9 @@ info-line-steps: "<gray>  steps: <white><value>"
 info-line-duration: "<gray>  duration: <white><value> ticks"
 info-line-default: "<gray>  default <white><key><gray>=<white><value>"
 
-help-desc-preview: "<gray>preview an effect at your location"
-help-desc-list: "<gray>list all loaded effects"
-help-desc-info: "<gray>show details about an effect"
-help-desc-debug: "<gray>toggle debug logging"
-help-desc-reload: "<gray>reload config and effects from disk"
-help-desc-stop: "<gray>stop active effects"
+help-desc-preview: "!<gray>preview an effect at your location"
+help-desc-list: "!<gray>list all loaded effects"
+help-desc-info: "!<gray>show details about an effect"
+help-desc-debug: "!<gray>toggle debug logging"
+help-desc-reload: "!<gray>reload config and effects from disk"
+help-desc-stop: "!<gray>stop active effects"

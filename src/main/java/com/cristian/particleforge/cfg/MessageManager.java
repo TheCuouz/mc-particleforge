@@ -1,6 +1,8 @@
 package com.cristian.particleforge.cfg;
 
 import com.cristian.particleforge.ParticleForgePlugin;
+import com.ttsstudio.sdk.PluginIdentity;
+import com.ttsstudio.sdk.chat.ChatPrefix;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver;
@@ -16,10 +18,14 @@ import java.util.Map;
  * Loads {@code messages.yml} (the base/English message bank) plus a
  * locale overlay from {@code lang/<configured>.yml}. Overlay keys win.
  *
- * <p>All strings are MiniMessage source. The global {@code prefix} (defined
- * once in {@code messages.yml}) is auto-prepended on send unless the source
- * string starts with {@code "!"}, in which case the bang is stripped and the
- * line is sent prefix-less.</p>
+ * <p>All strings are MiniMessage source. The studio-wide chat prefix from the
+ * TTS-SDK ({@link ChatPrefix}) is auto-prepended on send so every plugin in
+ * the suite renders with the same visual signature
+ * ({@code ◈ Particles › <message>}). A leading {@code "!"} on the source line
+ * is stripped and suppresses the prefix — used for fragments that get composed
+ * into other messages (e.g. help-line descriptions injected via a
+ * {@code <desc>} placeholder), where prefixing the inner fragment would
+ * produce a double prefix.</p>
  *
  * <p>Placeholders are passed in as {@link TagResolver} varargs — never by
  * string concatenation. That preserves MiniMessage safety against
@@ -30,11 +36,16 @@ public final class MessageManager {
     private static final MiniMessage MM = MiniMessage.miniMessage();
 
     private final ParticleForgePlugin plugin;
+    private final ChatPrefix chatPrefix;
     private final Map<String, String> messages = new HashMap<>();
-    private String prefix = "";
 
     public MessageManager(ParticleForgePlugin plugin) {
         this.plugin = plugin;
+        // Resolve identity from the SDK registry. ParticleForgePlugin#onEnable
+        // also sets withAlias("Particles") on its own identity field, but the
+        // registry entry now provides the same alias + a stable suite color,
+        // so PluginIdentity.of(plugin) is sufficient here.
+        this.chatPrefix = ChatPrefix.of(PluginIdentity.of(plugin));
         // Ship default copies of every translatable resource to the data folder
         // so server operators can edit them in place.
         plugin.saveResource("messages.yml", false);
@@ -54,12 +65,10 @@ public final class MessageManager {
     }
 
     private void loadAll() {
-        // Base: messages.yml (English, with prefix).
+        // Base: messages.yml (English bank).
         File baseFile = new File(plugin.getDataFolder(), "messages.yml");
         FileConfiguration base = YamlConfiguration.loadConfiguration(baseFile);
-        this.prefix = base.getString("prefix", "");
         for (String key : base.getKeys(false)) {
-            if ("prefix".equals(key)) continue;
             String val = base.getString(key);
             if (val != null) messages.put(key, val);
         }
@@ -81,8 +90,8 @@ public final class MessageManager {
     }
 
     /**
-     * Resolves the key, prepends the prefix unless the source string starts
-     * with {@code "!"}, parses with MiniMessage and sends to {@code to}.
+     * Resolves the key, prepends the studio prefix unless the source string
+     * starts with {@code "!"}, parses with MiniMessage and sends to {@code to}.
      */
     public void send(CommandSender to, String key, TagResolver... resolvers) {
         to.sendMessage(component(key, resolvers));
@@ -99,8 +108,8 @@ public final class MessageManager {
         }
         boolean noPrefix = src.startsWith("!");
         if (noPrefix) src = src.substring(1);
-        String composed = noPrefix ? src : (prefix + src);
-        return MM.deserialize(composed, resolvers);
+        Component body = MM.deserialize(src, resolvers);
+        return noPrefix ? body : chatPrefix.then(body);
     }
 
     private void saveLangResource(String path) {

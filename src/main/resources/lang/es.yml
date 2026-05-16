@@ -1,5 +1,8 @@
 # Overlay en español. Las claves de aquí sobrescriben las de messages.yml.
-# El "prefix" NO se redefine aquí — vive en messages.yml como constante global.
+# El prefijo de chat del estudio (◈ Particles ›) lo provee el TTS-SDK y se
+# antepone automáticamente al enviar. Prepende "!" para suprimir el prefijo
+# en fragmentos que se componen dentro de otro mensaje vía placeholder
+# (p.ej. <desc> dentro de help-line) y así evitar un doble prefijo.
 
 no-permission: "<red>No tienes permiso para usar este comando."
 unknown-subcommand: "<red>Subcomando desconocido <white><sub><red>. Prueba <white>/pf help<red>."
@@ -24,9 +27,9 @@ info-line-steps: "<gray>  pasos: <white><value>"
 info-line-duration: "<gray>  duración: <white><value> ticks"
 info-line-default: "<gray>  por defecto <white><key><gray>=<white><value>"
 
-help-desc-preview: "<gray>previsualiza un efecto en tu ubicación"
-help-desc-list: "<gray>lista todos los efectos cargados"
-help-desc-info: "<gray>muestra detalles de un efecto"
-help-desc-debug: "<gray>activa/desactiva el log de depuración"
-help-desc-reload: "<gray>recarga config y efectos desde disco"
-help-desc-stop: "<gray>detiene efectos activos"
+help-desc-preview: "!<gray>previsualiza un efecto en tu ubicación"
+help-desc-list: "!<gray>lista todos los efectos cargados"
+help-desc-info: "!<gray>muestra detalles de un efecto"
+help-desc-debug: "!<gray>activa/desactiva el log de depuración"
+help-desc-reload: "!<gray>recarga config y efectos desde disco"
+help-desc-stop: "!<gray>detiene efectos activos"
