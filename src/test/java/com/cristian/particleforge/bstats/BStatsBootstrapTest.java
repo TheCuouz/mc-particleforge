@@ -1,18 +1,10 @@
 package com.cristian.particleforge.bstats;
 
-import com.cristian.particleforge.engine.EffectEngine;
-import com.cristian.particleforge.registry.EffectRegistry;
-import org.bukkit.plugin.java.JavaPlugin;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Method;
-import java.util.logging.Logger;
 
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 /**
  * Unit tests for {@link BStatsBootstrap}.
@@ -34,23 +26,5 @@ class BStatsBootstrapTest {
         assertEquals("51-100", m.invoke(null, 51));
         assertEquals("51-100", m.invoke(null, 100));
         assertEquals("100+",   m.invoke(null, 101));
-    }
-
-    @Test
-    void init_with_zero_id_logs_info_and_returns_without_throwing() {
-        JavaPlugin plugin = mock(JavaPlugin.class);
-        EffectRegistry registry = mock(EffectRegistry.class);
-        EffectEngine engine = mock(EffectEngine.class);
-        Logger logger = Logger.getLogger("BStatsBootstrapTest");
-        when(plugin.getLogger()).thenReturn(logger);
-
-        BStatsBootstrap boot = new BStatsBootstrap(plugin, registry, engine);
-
-        // Sanity: confirm the precondition the test depends on.
-        assertEquals(0, BStatsBootstrap.BSTATS_PLUGIN_ID,
-                "test assumes plugin id not yet assigned");
-
-        assertDoesNotThrow(boot::init);
-        verify(plugin).getLogger();
     }
 }

@@ -15,14 +15,10 @@ import java.util.Objects;
 
 /**
  * Wires bStats metrics with a few custom charts.
- *
- * The {@link #BSTATS_PLUGIN_ID} is assigned at release time; until then init is a
- * no-op. (Suite convention — same pattern other plugins use for their IDs.)
  */
 public final class BStatsBootstrap {
 
-    /** FILLED ON RELEASE — request from https://bstats.org/getting-started/include-metrics */
-    public static final int BSTATS_PLUGIN_ID = 0;
+    public static final int BSTATS_PLUGIN_ID = 31357;
 
     private final JavaPlugin plugin;
     private final EffectRegistry registry;
@@ -35,10 +31,6 @@ public final class BStatsBootstrap {
     }
 
     public void init() {
-        if (BSTATS_PLUGIN_ID == 0) {
-            plugin.getLogger().info("[bStats] plugin id not assigned yet — metrics disabled.");
-            return;
-        }
         Metrics m = new Metrics(plugin, BSTATS_PLUGIN_ID);
         m.addCustomChart(new SimplePie("effects_loaded", () -> bucket(registry.size())));
         m.addCustomChart(new SingleLineChart("active_effects", () -> engine.activeCount()));
