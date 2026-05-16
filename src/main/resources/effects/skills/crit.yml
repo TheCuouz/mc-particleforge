@@ -1,0 +1,19 @@
+name: skills/crit
+category: skills
+steps:
+  - id: indicator
+    type: BURST
+    duration: 4
+    params:
+      particle: CRIT
+      count: 14
+      speed: 0.5
+      spread: 0.4
+  - id: spark
+    type: BURST
+    duration: 4
+    params:
+      particle: FLAME
+      count: 6
+      speed: 0.3
+      spread: 0.5

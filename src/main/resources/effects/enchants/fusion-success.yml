@@ -1,0 +1,29 @@
+name: enchants/fusion-success
+category: enchants
+steps:
+  - id: spiral
+    type: HELIX
+    duration: 30
+    params:
+      particle: PORTAL
+      radius: 0.8
+      height: 4.0
+      turns: 4
+      strands: 3
+      count: 4
+  - id: burst
+    type: BURST
+    duration: 5
+    params:
+      particle: ENCHANT
+      count: 30
+      speed: 0.5
+      spread: 0.6
+  - id: sparkle
+    type: BURST
+    duration: 5
+    params:
+      particle: END_ROD
+      count: 12
+      speed: 0.6
+      spread: 0.4

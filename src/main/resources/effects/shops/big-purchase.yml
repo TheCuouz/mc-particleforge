@@ -1,0 +1,29 @@
+name: shops/big-purchase
+category: shops
+steps:
+  - id: firework
+    type: BURST
+    duration: 6
+    params:
+      particle: FIREWORK
+      count: 50
+      speed: 0.7
+      spread: 1.0
+  - id: rain
+    type: RAIN
+    duration: 25
+    params:
+      particle: HAPPY_VILLAGER
+      radius: 2.0
+      height: 3.0
+      density-per-tick: 4
+      speed: 0.05
+      spread: 0.2
+  - id: chime
+    type: BURST
+    duration: 5
+    params:
+      particle: NOTE
+      count: 12
+      speed: 0.4
+      spread: 0.5

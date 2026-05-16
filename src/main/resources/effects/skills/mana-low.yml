@@ -1,0 +1,11 @@
+name: skills/mana-low
+category: skills
+steps:
+  - id: head-sparkle
+    type: BURST
+    duration: 8
+    params:
+      particle: WITCH
+      count: 4
+      speed: 0.05
+      spread: 0.3

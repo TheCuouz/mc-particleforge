@@ -1,0 +1,19 @@
+name: enchants/wings
+category: enchants
+steps:
+  - id: feathers-left
+    type: BURST
+    duration: 4
+    params:
+      particle: CLOUD
+      count: 8
+      speed: 0.3
+      spread: 0.4
+  - id: feathers-right
+    type: BURST
+    duration: 4
+    params:
+      particle: GLOW
+      count: 6
+      speed: 0.2
+      spread: 0.3

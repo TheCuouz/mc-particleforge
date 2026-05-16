@@ -1,0 +1,19 @@
+name: skills/synergy
+category: skills
+steps:
+  - id: bridge
+    type: LINE
+    duration: 30
+    params:
+      particle: ENCHANT
+      target-relative: "0,0,4"
+      points: 18
+      count: 1
+  - id: source-glow
+    type: RING
+    duration: 30
+    params:
+      particle: GLOW
+      radius: 0.6
+      points: 6
+      rotation-deg-per-tick: 10

@@ -1,0 +1,21 @@
+name: claims/claim-created
+category: claims
+steps:
+  - id: pillars
+    type: HELIX
+    duration: 30
+    params:
+      particle: END_ROD
+      radius: 0.8
+      height: 4.0
+      turns: 2
+      strands: 2
+      count: 2
+  - id: shockwave
+    type: SHOCKWAVE
+    duration: 20
+    params:
+      particle: ENCHANT
+      start-radius: 0.5
+      end-radius: 3.5
+      points-per-tick: 18

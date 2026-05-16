@@ -1,0 +1,19 @@
+name: shops/insufficient-funds
+category: shops
+steps:
+  - id: smoke
+    type: BURST
+    duration: 6
+    params:
+      particle: LARGE_SMOKE
+      count: 12
+      speed: 0.1
+      spread: 0.5
+  - id: angry
+    type: BURST
+    duration: 4
+    params:
+      particle: ANGRY_VILLAGER
+      count: 3
+      speed: 0.1
+      spread: 0.3

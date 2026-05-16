@@ -1,0 +1,13 @@
+name: skills/mana-full
+category: skills
+steps:
+  - id: swirl
+    type: VORTEX
+    duration: 15
+    params:
+      particle: INSTANT_EFFECT
+      start-radius: 1.2
+      end-radius: 0.0
+      height: 2.0
+      turns: 3
+      points-per-tick: 10

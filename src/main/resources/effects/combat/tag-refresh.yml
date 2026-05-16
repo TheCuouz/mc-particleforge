@@ -1,0 +1,19 @@
+name: combat/tag-refresh
+category: combat
+steps:
+  - id: pulse
+    type: RING
+    duration: 20
+    params:
+      particle: ANGRY_VILLAGER
+      radius: 1.2
+      points: 12
+      rotation-deg-per-tick: 9
+  - id: spark
+    type: BURST
+    duration: 4
+    params:
+      particle: CRIT
+      count: 8
+      speed: 0.3
+      spread: 0.4

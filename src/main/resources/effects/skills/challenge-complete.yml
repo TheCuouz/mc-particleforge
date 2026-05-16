@@ -1,0 +1,19 @@
+name: skills/challenge-complete
+category: skills
+steps:
+  - id: shockwave
+    type: SHOCKWAVE
+    duration: 20
+    params:
+      particle: TOTEM_OF_UNDYING
+      start-radius: 0.3
+      end-radius: 3.0
+      points-per-tick: 24
+  - id: burst
+    type: BURST
+    duration: 5
+    params:
+      particle: FIREWORK
+      count: 40
+      speed: 0.6
+      spread: 0.8

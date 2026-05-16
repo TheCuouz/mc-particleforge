@@ -1,0 +1,19 @@
+name: enchants/crit-iridescent
+category: enchants
+steps:
+  - id: indicator
+    type: BURST
+    duration: 4
+    params:
+      particle: ENCHANT
+      count: 18
+      speed: 0.5
+      spread: 0.4
+  - id: glow
+    type: BURST
+    duration: 4
+    params:
+      particle: END_ROD
+      count: 8
+      speed: 0.4
+      spread: 0.3

@@ -1,0 +1,11 @@
+name: quests/npc-aura
+category: quests
+steps:
+  - id: aura
+    type: RING
+    duration: 30
+    params:
+      particle: END_ROD
+      radius: 0.55
+      points: 5
+      rotation-deg-per-tick: 8

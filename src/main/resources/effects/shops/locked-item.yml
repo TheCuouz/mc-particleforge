@@ -1,0 +1,19 @@
+name: shops/locked-item
+category: shops
+steps:
+  - id: cross
+    type: BURST
+    duration: 5
+    params:
+      particle: ANGRY_VILLAGER
+      count: 6
+      speed: 0.0
+      spread: 0.2
+  - id: dust
+    type: BURST
+    duration: 4
+    params:
+      particle: SMOKE
+      count: 8
+      speed: 0.1
+      spread: 0.3

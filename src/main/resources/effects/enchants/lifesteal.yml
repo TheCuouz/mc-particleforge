@@ -1,0 +1,19 @@
+name: enchants/lifesteal
+category: enchants
+steps:
+  - id: pulse
+    type: BURST
+    duration: 4
+    params:
+      particle: HEART
+      count: 4
+      speed: 0.2
+      spread: 0.3
+  - id: blood
+    type: BURST
+    duration: 4
+    params:
+      particle: DAMAGE_INDICATOR
+      count: 6
+      speed: 0.2
+      spread: 0.3

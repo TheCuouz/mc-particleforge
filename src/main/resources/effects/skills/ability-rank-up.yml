@@ -1,0 +1,20 @@
+name: skills/ability-rank-up
+category: skills
+steps:
+  - id: ring
+    type: RING
+    duration: 25
+    params:
+      particle: FLAME
+      radius: 1.4
+      points: 16
+      yaw-deg: 0
+      rotation-deg-per-tick: 12
+  - id: burst
+    type: BURST
+    duration: 5
+    params:
+      particle: GLOW
+      count: 20
+      speed: 0.4
+      spread: 0.5

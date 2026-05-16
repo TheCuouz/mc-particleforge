@@ -1,0 +1,27 @@
+name: enchants/fusion-fail
+category: enchants
+steps:
+  - id: pop
+    type: BURST
+    duration: 4
+    params:
+      particle: EXPLOSION
+      count: 1
+      speed: 0.0
+      spread: 0.0
+  - id: smoke
+    type: BURST
+    duration: 6
+    params:
+      particle: LARGE_SMOKE
+      count: 18
+      speed: 0.15
+      spread: 0.8
+  - id: angry
+    type: BURST
+    duration: 4
+    params:
+      particle: ANGRY_VILLAGER
+      count: 4
+      speed: 0.1
+      spread: 0.3

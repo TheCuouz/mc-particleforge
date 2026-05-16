@@ -1,0 +1,21 @@
+name: shops/buy-success
+category: shops
+steps:
+  - id: coin-rain
+    type: RAIN
+    duration: 20
+    params:
+      particle: HAPPY_VILLAGER
+      radius: 1.5
+      height: 2.5
+      density-per-tick: 3
+      speed: 0.05
+      spread: 0.15
+  - id: chime
+    type: BURST
+    duration: 4
+    params:
+      particle: NOTE
+      count: 6
+      speed: 0.3
+      spread: 0.4

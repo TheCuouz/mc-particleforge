@@ -1,0 +1,21 @@
+name: claims/trust-add
+category: claims
+steps:
+  - id: hearts
+    type: RAIN
+    duration: 20
+    params:
+      particle: HEART
+      radius: 1.0
+      height: 2.0
+      density-per-tick: 2
+      speed: 0.0
+      spread: 0.4
+  - id: burst
+    type: BURST
+    duration: 4
+    params:
+      particle: HEART
+      count: 8
+      speed: 0.2
+      spread: 0.5

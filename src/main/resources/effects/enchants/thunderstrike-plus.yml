@@ -1,0 +1,19 @@
+name: enchants/thunderstrike-plus
+category: enchants
+steps:
+  - id: lightning
+    type: LINE
+    duration: 6
+    params:
+      particle: ELECTRIC_SPARK
+      target-relative: "0,8,0"
+      points: 24
+      count: 3
+  - id: burst
+    type: BURST
+    duration: 5
+    params:
+      particle: FLAME
+      count: 20
+      speed: 0.4
+      spread: 0.6

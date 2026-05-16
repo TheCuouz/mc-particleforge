@@ -1,0 +1,21 @@
+name: skills/respec
+category: skills
+steps:
+  - id: dissolve
+    type: VORTEX
+    duration: 25
+    params:
+      particle: SOUL
+      start-radius: 0.0
+      end-radius: 2.5
+      height: 2.5
+      turns: 2
+      points-per-tick: 12
+  - id: dust
+    type: BURST
+    duration: 5
+    params:
+      particle: SMOKE
+      count: 25
+      speed: 0.25
+      spread: 1.0

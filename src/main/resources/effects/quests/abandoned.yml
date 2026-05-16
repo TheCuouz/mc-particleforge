@@ -1,0 +1,11 @@
+name: quests/abandoned
+category: quests
+steps:
+  - id: smoke
+    type: BURST
+    duration: 8
+    params:
+      particle: LARGE_SMOKE
+      count: 14
+      speed: 0.1
+      spread: 0.7

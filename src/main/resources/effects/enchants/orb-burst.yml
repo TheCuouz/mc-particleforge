@@ -1,0 +1,21 @@
+name: enchants/orb-burst
+category: enchants
+defaults:
+  particle: ENCHANT
+steps:
+  - id: shockwave
+    type: SHOCKWAVE
+    duration: 15
+    params:
+      particle: ${particle}
+      start-radius: 0.2
+      end-radius: 2.5
+      points-per-tick: 20
+  - id: burst
+    type: BURST
+    duration: 5
+    params:
+      particle: ${particle}
+      count: 24
+      speed: 0.5
+      spread: 0.5

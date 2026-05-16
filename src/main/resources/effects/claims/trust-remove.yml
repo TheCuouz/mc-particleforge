@@ -1,0 +1,19 @@
+name: claims/trust-remove
+category: claims
+steps:
+  - id: shatter
+    type: BURST
+    duration: 5
+    params:
+      particle: DAMAGE_INDICATOR
+      count: 10
+      speed: 0.3
+      spread: 0.5
+  - id: smoke
+    type: BURST
+    duration: 5
+    params:
+      particle: SMOKE
+      count: 10
+      speed: 0.1
+      spread: 0.4

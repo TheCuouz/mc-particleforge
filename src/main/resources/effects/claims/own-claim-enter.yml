@@ -1,0 +1,11 @@
+name: claims/own-claim-enter
+category: claims
+steps:
+  - id: feet-pulse
+    type: RING
+    duration: 12
+    params:
+      particle: HAPPY_VILLAGER
+      radius: 0.6
+      points: 8
+      rotation-deg-per-tick: 6

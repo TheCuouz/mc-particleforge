@@ -1,0 +1,19 @@
+name: enchants/cleave
+category: enchants
+steps:
+  - id: shockwave
+    type: SHOCKWAVE
+    duration: 10
+    params:
+      particle: CRIT
+      start-radius: 0.5
+      end-radius: 3.0
+      points-per-tick: 24
+  - id: sparkle
+    type: BURST
+    duration: 4
+    params:
+      particle: FLAME
+      count: 12
+      speed: 0.4
+      spread: 0.5
