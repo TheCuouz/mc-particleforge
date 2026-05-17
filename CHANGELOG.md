@@ -18,6 +18,23 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - `EffectEngine.tickOnce` distinguishes `UnsupportedParticleDataException` from generic `Throwable`. The former is logged once per effect name and the handle continues — a single mis-curated step no longer cancels the entire effect timeline. Generic throwables still cancel as before.
 - `mana-full.yml` carries explicit `color: "#66E1FF"` + `power: 1.0` for the curated commercial look.
 
+## [1.0.2] — 2026-05-16
+
+### Added
+- Effect library expanded from 24 → 51 so the rest of the suite can hook in with names that already exist out of the box. New effects by category:
+  - **skills** (7): `ability-rank-up`, `mana-low`, `mana-full`, `challenge-complete`, `respec`, `synergy`, `crit`.
+  - **shops** (5): `buy-success`, `sell-success`, `insufficient-funds`, `big-purchase`, `locked-item`.
+  - **claims** (4): `claim-created`, `trust-add`, `trust-remove`, `own-claim-enter`.
+  - **combat** (1): `tag-refresh`.
+  - **quests** (2): `abandoned`, `npc-aura`.
+  - **enchants** (8): `fusion-success`, `fusion-fail`, `orb-burst`, `lifesteal`, `wings`, `thunderstrike-plus`, `cleave`, `crit-iridescent`.
+- `enchants/orb-burst` uses `${particle}` interpolation so EFV2Addon can override the particle per orb tier (common/rare/epic/legendary).
+
+## [1.0.1] — 2026-05-16
+
+### Changed
+- bStats plugin id `31357` assigned and live. Dropped the pre-release no-op guard in `BStatsBootstrap` (and its accompanying test) — metrics report on next enable.
+
 ## [1.0.0] — 2026-05-15
 
 Initial release.
