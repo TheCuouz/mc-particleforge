@@ -1,6 +1,8 @@
 package com.cristian.particleforge.engine;
 
 import com.cristian.particleforge.api.EffectHandle;
+import com.cristian.particleforge.primitives.UnsupportedParticleDataException;
+import org.bukkit.Particle;
 import org.bukkit.plugin.Plugin;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -133,6 +135,33 @@ class EffectEngineTest {
         verify(budget, never()).onFinish(good);
         assertEquals(1, engine.activeCount());
         assertTrue(engine.activeHandles().contains(good));
+    }
+
+    // Case 5b: UnsupportedParticleDataException is treated as recoverable —
+    // the offending tick is swallowed but the handle stays alive and other
+    // handles keep ticking. Repeated throws from the same handle log only once.
+    @Test
+    void tickOnce_unsupportedParticleData_keepsHandleAlive_logsOnce() {
+        EffectHandleImpl spell = liveHandle("skills/mana-full", null);
+        EffectHandleImpl good = liveHandle("good", null);
+        when(budget.tryAdmit(any())).thenReturn(true);
+        engine.submit(spell);
+        engine.submit(good);
+
+        doThrow(new UnsupportedParticleDataException(Particle.ITEM, java.util.Map.class))
+            .when(spell).tick();
+
+        // Two consecutive ticks
+        engine.tickOnce();
+        engine.tickOnce();
+
+        verify(spell, times(2)).tick();
+        verify(spell, never()).cancel();
+        verify(budget, never()).onFinish(spell);
+        verify(good, times(2)).tick();
+        assertTrue(engine.activeHandles().contains(spell),
+            "spell handle must survive unsupported-particle ticks");
+        assertEquals(2, engine.activeCount());
     }
 
     // Case 6: cancelAll(owner) only cancels matching owners; returns count.

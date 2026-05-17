@@ -1,6 +1,7 @@
 package com.cristian.particleforge.engine;
 
 import com.cristian.particleforge.api.EffectHandle;
+import com.cristian.particleforge.primitives.UnsupportedParticleDataException;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
@@ -10,7 +11,9 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.logging.Level;
 
@@ -24,6 +27,8 @@ public final class EffectEngine {
     private final Plugin plugin;
     private final BudgetManager budget;
     private final CopyOnWriteArrayList<EffectHandleImpl> active = new CopyOnWriteArrayList<>();
+    /** Effects that have already logged an unsupported-particle warning (rate-limit to once each). */
+    private final Set<String> warnedUnsupported = ConcurrentHashMap.newKeySet();
 
     private BukkitTask task;
     private boolean running;
@@ -110,6 +115,19 @@ public final class EffectEngine {
             }
             try {
                 h.tick();
+            } catch (UnsupportedParticleDataException ex) {
+                // One step has a particle whose data we can't synthesize. Skip
+                // this tick but keep the handle alive — the remaining steps in
+                // the timeline are independent and probably fine. Log once per
+                // effect name so console doesn't drown.
+                if (warnedUnsupported.add(h.effectName())) {
+                    plugin.getLogger().warning(
+                        "EffectEngine: handle '" + h.effectName() + "' uses "
+                        + ex.particle().name() + " which requires "
+                        + ex.dataType().getSimpleName()
+                        + " data — skipping particle, effect continues. "
+                        + "Curate the YAML to use a supported particle.");
+                }
             } catch (Throwable t) {
                 plugin.getLogger().log(Level.WARNING,
                     "EffectEngine: handle '" + h.effectName() + "' threw — cancelling", t);

@@ -6,6 +6,8 @@ steps:
     duration: 15
     params:
       particle: INSTANT_EFFECT
+      color: "#66E1FF"
+      power: 1.0
       start-radius: 1.2
       end-radius: 0.0
       height: 2.0

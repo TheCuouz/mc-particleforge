@@ -3,6 +3,7 @@ package com.cristian.particleforge.primitives;
 import com.cristian.particleforge.engine.BudgetManager;
 import com.cristian.particleforge.model.EffectContext;
 import com.cristian.particleforge.model.EffectStep;
+import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 
@@ -36,6 +37,8 @@ public final class VortexStep implements EffectStep {
     private final double turns;
     private final double speed;
     private final double spread;
+    private final Color color;
+    private final float power;
 
     public VortexStep(String id, int durationTicks, Map<String, Object> params) {
         this.id = id;
@@ -49,6 +52,8 @@ public final class VortexStep implements EffectStep {
         this.turns         = ParamUtil.doubleVal(params, "turns", 5.0);
         this.speed         = ParamUtil.doubleVal(params, "speed", 0.0);
         this.spread        = ParamUtil.doubleVal(params, "spread", 0.0);
+        this.color         = ParamUtil.color(params, "color", SpawnUtil.DEFAULT_SPELL_COLOR);
+        this.power         = (float) ParamUtil.doubleVal(params, "power", SpawnUtil.DEFAULT_SPELL_POWER);
     }
 
     @Override public String id() { return id; }
@@ -69,7 +74,7 @@ public final class VortexStep implements EffectStep {
             double dx = Math.cos(theta) * r;
             double dz = Math.sin(theta) * r;
             Location at = origin.clone().add(dx, y, dz);
-            SpawnUtil.spawn(at, ctx, particle, count, spread, speed);
+            SpawnUtil.spawn(at, ctx, particle, count, spread, speed, color, power);
         }
     }
 
