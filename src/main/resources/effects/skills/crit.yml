@@ -1,6 +1,6 @@
-# RESERVED — efecto sin emisor.
-# SkillsRPG no tiene feature de crítico (Berserker es boost de daño plano).
-# Se mantiene en la library para una futura skill/pasiva de crit; ver DEC-020.
+# RESERVED — effect with no emitter yet.
+# SkillsRPG has no critical-hit feature (Berserker is a flat damage boost).
+# Kept in the library for a future crit skill/passive; see DEC-020.
 name: skills/crit
 category: skills
 steps:
