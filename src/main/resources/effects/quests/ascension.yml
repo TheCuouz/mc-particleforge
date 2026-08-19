@@ -1,0 +1,43 @@
+name: quests/ascension
+category: quests
+# Ascension: pilar de luz al cielo + halo girando + esfera expansiva, remate floral.
+defaults:
+  light: END_ROD
+steps:
+  - id: pillar
+    type: LINE
+    duration: 30
+    params:
+      particle: ${light}
+      target-relative: "0,6,0"
+      points: 30
+      count: 2
+  - id: halo
+    type: PARALLEL
+    steps:
+      - id: ring1
+        type: RING
+        duration: 30
+        params:
+          particle: ${light}
+          radius: 1.5
+          points: 24
+          rotation-deg-per-tick: 10
+          count: 1
+      - id: sphere
+        type: SPHERE
+        duration: 30
+        params:
+          particle: TOTEM_OF_UNDYING
+          points: 50
+          radius: 0.5
+          expand-per-tick: 0.07
+          count: 1
+  - id: bloom
+    type: BURST
+    duration: 6
+    params:
+      particle: ${light}
+      count: 40
+      speed: 0.5
+      spread: 0.8

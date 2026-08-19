@@ -4,6 +4,20 @@ All notable changes to ParticleForge are documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.1.0] — 2026-08-19
+
+### Added
+- Effect library expanded from 51 → 56 with showcase effects:
+  - **combat** (1): `anime-slash` — anime-style curved sweep arc with a crit flash.
+  - **skills** (2): `anime-cast` (3-phase charge → beam → impact), `limit-break` (rising energy pillar + helix sparks).
+  - **quests** (1): `ascension` — ascending column for a major milestone.
+  - **teleport** (1): `portal-arcano` — arcane portal swirl.
+
+### Changed
+- **Default interface language is now English** (`lang: en`), including the shared
+  SDK navigation strings (`Page X/Y`, Close/Back/Next). `lang/es.yml` ships complete;
+  set `lang: es` for Spanish.
+
 ## [1.0.3] — 2026-05-17
 
 ### Fixed

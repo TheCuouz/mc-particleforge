@@ -1,0 +1,61 @@
+name: skills/anime-cast
+category: skills
+# Casteo estilo anime en 3 fases: CARGA (vortice que implosiona + orbes girando)
+# -> HAZ (cono concentrado hacia delante) -> IMPACTO (burst + onda de choque).
+defaults:
+  charge-particle: DRAGON_BREATH
+  beam-particle: SOUL_FIRE_FLAME
+  impact-particle: FLAME
+steps:
+  - id: charge-phase
+    type: PARALLEL
+    steps:
+      - id: implosion
+        type: VORTEX
+        duration: 25
+        params:
+          particle: ${charge-particle}
+          start-radius: 2.5
+          end-radius: 0.1
+          height: 1.5
+          turns: 5
+          points-per-tick: 14
+      - id: charge-orbit
+        type: ORBIT
+        duration: 25
+        params:
+          particle: ${beam-particle}
+          radius: 1.0
+          points: 4
+          turns: 4
+          count: 2
+  - id: beam
+    type: CONE
+    duration: 12
+    params:
+      particle: ${beam-particle}
+      direction: forward
+      angle-deg: 8
+      length: 12.0
+      points-per-tick: 14
+      count: 2
+      speed: 0.4
+  - id: impact
+    type: PARALLEL
+    steps:
+      - id: boom
+        type: BURST
+        duration: 6
+        params:
+          particle: ${impact-particle}
+          count: 50
+          speed: 1.0
+          spread: 1.2
+      - id: wave
+        type: SHOCKWAVE
+        duration: 16
+        params:
+          particle: EXPLOSION
+          start-radius: 0.5
+          end-radius: 4.5
+          points-per-tick: 24

@@ -1,0 +1,24 @@
+name: combat/anime-slash
+category: combat
+# Tajo estilo anime: arco curvo (crescent) inclinado + destello de critico.
+defaults:
+  slash: SWEEP_ATTACK
+steps:
+  - id: arc
+    type: SHAPE
+    duration: 8
+    params:
+      particle: ${slash}
+      vertices: ["-2,1", "-1.4,1.8", "0,2.1", "1.4,1.8", "2,1"]
+      points-per-edge: 10
+      closed: false
+      pitch-deg: 60
+      count: 1
+  - id: flash
+    type: BURST
+    duration: 5
+    params:
+      particle: CRIT
+      count: 25
+      speed: 0.8
+      spread: 0.5

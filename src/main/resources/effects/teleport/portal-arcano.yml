@@ -1,0 +1,58 @@
+name: teleport/portal-arcano
+category: teleport
+# Portal arcano: anillo-puerta vertical girando + vortice que succiona al centro
+# + chispas en helice ascendente, rematado con flash y onda de choque.
+defaults:
+  ring-particle: PORTAL
+  core-particle: SOUL_FIRE_FLAME
+  spark-particle: END_ROD
+steps:
+  - id: open
+    type: PARALLEL
+    steps:
+      - id: gate-ring
+        type: RING
+        duration: 50
+        params:
+          particle: ${ring-particle}
+          radius: 2.2
+          points: 44
+          pitch-deg: 90
+          rotation-deg-per-tick: 8.0
+          count: 1
+      - id: inner-vortex
+        type: VORTEX
+        duration: 50
+        params:
+          particle: ${core-particle}
+          start-radius: 2.0
+          end-radius: 0.2
+          height: 3.0
+          turns: 6
+          points-per-tick: 12
+      - id: rising-sparks
+        type: HELIX
+        duration: 50
+        params:
+          particle: ${spark-particle}
+          radius: 1.6
+          height: 3.5
+          turns: 4
+          strands: 3
+          count: 2
+  - id: flash
+    type: BURST
+    duration: 6
+    params:
+      particle: FLASH
+      count: 4
+      speed: 0.0
+      spread: 0.2
+  - id: shock
+    type: SHOCKWAVE
+    duration: 18
+    params:
+      particle: ${ring-particle}
+      start-radius: 0.5
+      end-radius: 3.5
+      points-per-tick: 28
